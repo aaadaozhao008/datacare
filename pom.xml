@@ -1,0 +1,768 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.myqq</groupId>
+  <artifactId>myqq</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+   <name>myqq</name>
+  <packaging>war</packaging>
+  
+  <properties>
+  	 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project_name>myqq</project_name>
+        <maven.build.timestamp.format>yyyy-MM-dd_HH_mm</maven.build.timestamp.format>  
+       
+        <!-- Spring -->
+		<spring.version>4.3.5.RELEASE</spring.version>
+  		<spring.batch.version>3.0.9.RELEASE</spring.batch.version>
+		<spring.data.mongodb.version>1.10.4.RELEASE</spring.data.mongodb.version>
+		<spring.kafka.version>1.1.1.RELEASE</spring.kafka.version>
+		
+		<!-- mybatis -->
+		<mybatis.version>3.3.0</mybatis.version>
+		<mybatis.spring.version>1.2.2</mybatis.spring.version>
+		<mybatis.paginator.version>1.2.15</mybatis.paginator.version>
+		
+		<druid.version>1.0.9</druid.version>
+		<mysql.version>5.1.32</mysql.version>
+		
+		<lucene.version>5.0.0</lucene.version>
+		<ikanalyzer.version>5.0</ikanalyzer.version>
+		
+		<pager.pagehelper.version>5.0.0</pager.pagehelper.version>
+		
+		<!-- cache -->
+		<redis.jedis.version>2.9.0</redis.jedis.version>
+		<redis.spring.version>1.8.4.RELEASE</redis.spring.version>
+		
+		<ehcache.version>2.6.11</ehcache.version>
+		<ehcache-web.version>2.0.4</ehcache-web.version>
+		
+		<!-- shiro -->
+		<shiro.version>1.3.2</shiro.version>
+		
+		<!-- logs -->
+		<logback.version>1.1.3</logback.version>
+		<logback-ext-spring.version>0.1.2</logback-ext-spring.version>
+		
+		<slf4j.version>1.6.2</slf4j.version>
+		<slf4j-api.version>1.7.12</slf4j-api.version>
+		<jcl-over-slf4j.version>1.7.12</jcl-over-slf4j.version>
+        
+        
+        <aspectj.version>1.7.4</aspectj.version>
+		<esper.version>6.1.0</esper.version>
+<!-- 		<esper.version>7.0.0</esper.version>  -->
+		<janino.version>2.7.8</janino.version> 
+		<joda-time.version>2.5</joda-time.version>
+		<quartz.version>2.2.1</quartz.version>
+        
+		<!-- json -->
+		
+		<jackson.version>2.6.7</jackson.version>
+	    <json.fastjson.version>1.2.16</json.fastjson.version>
+	    <json.gson.version>2.7</json.gson.version>
+	
+	    <dozer.version>5.5.1</dozer.version>
+
+        <guava.version>17.0</guava.version>
+		<!-- apache comments -->
+		<commons-codec.version>1.9</commons-codec.version>
+		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<commons-io.version>1.3.2</commons-io.version>
+		<commons-net.version>3.3</commons-net.version>
+		<commons-fileupload.version>1.3.1</commons-fileupload.version>
+		<commons-math3.version>3.6.1</commons-math3.version>
+		<commons-email.version>1.4</commons-email.version>
+		<javax.email.version>1.5.2</javax.email.version>
+		<commons-configuration.version>1.6</commons-configuration.version>		
+		
+		<!-- XML Parser -->
+		<stax.version>1.0-2</stax.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<xml.xstream.version>1.4.9</xml.xstream.version>
+		
+		 <!-- cors-filter -->
+		 <cors-filter.version>2.5</cors-filter.version>
+		 <cors-filter-propertyUtils.version>1.9.1</cors-filter-propertyUtils.version>
+		
+		 <!-- jsp -->
+		 <servlet-api.version>2.5</servlet-api.version>
+		 <jsp-api.version>2.0</jsp-api.version>
+		 
+		<!-- el -->
+		<mvel.version>2.0</mvel.version>
+	    <jstl.version>1.2</jstl.version>
+	    <freemarker.version>2.3.20</freemarker.version>
+		
+	    <junit.version>4.12</junit.version>
+  </properties>
+	  <dependencies>
+	  <!-- drools-core -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.drools</groupId> -->
+<!-- 	    <artifactId>drools-core</artifactId> -->
+<!-- 	    <version>7.41.0.Final</version> -->
+<!-- 	</dependency> -->
+		<!-- 爬虫 -->
+		 <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+		<!--   <dependency>
+            <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+            <artifactId>WebCollector</artifactId>
+            <version>2.73-alpha</version>
+        </dependency> -->
+		  
+	  <!-- 线性回归jar包-->
+		<dependency>
+		    <groupId>flanagan</groupId>
+		    <artifactId>flanagan</artifactId>
+		    <version>1.0</version>
+		</dependency> 
+		  <!-- pcap解析文件包 -->
+	<dependency>
+	    <groupId>io.pkts</groupId>
+	    <artifactId>pkts-sdp</artifactId>
+	    <version>3.0.7</version>
+	</dependency>
+	<dependency>
+	    <groupId>io.pkts</groupId>
+	    <artifactId>pkts-core</artifactId>
+	    <version>3.0.7</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.ardikars.pcap</groupId>
+	    <artifactId>pcap-codec</artifactId>
+	    <version>0.0.19</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.ardikars.pcap</groupId>
+	    <artifactId>pcap-common</artifactId>
+	    <version>0.0.19</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.ardikars.pcap</groupId>
+	    <artifactId>pcap-spi</artifactId>
+	    <version>0.0.19</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.ardikars.pcap</groupId>
+	    <artifactId>pcap-api</artifactId>
+	    <version>0.0.19</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.ardikars.pcap</groupId>
+	    <artifactId>pcap-spring-boot-starter</artifactId>
+	    <version>0.0.10</version>
+	</dependency>
+	  	<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.3</version>
+		</dependency>
+	  	<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.5</version>
+		</dependency>
+<!-- 		poi -->
+	   <dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.17</version>
+		</dependency>  
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- spring batch  begin -->
+	    <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+            <version>${spring.batch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-infrastructure</artifactId>
+            <version>${spring.batch.version}</version>
+        </dependency>
+		<!-- spring batch  end -->
+		<!--spring-websocket -->
+		
+		 <dependency>
+		   <groupId>org.springframework</groupId>
+		   <artifactId>spring-websocket</artifactId>
+		   <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.springframework</groupId>
+		   <artifactId>spring-messaging</artifactId>
+		   <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- Spring Data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>${spring.data.mongodb.version}</version>
+		</dependency>
+		<!-- Kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>${spring.kafka.version}</version>
+		</dependency>
+	    
+	
+	
+	    
+	     <!--lucene 支持-->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.wltea</groupId>
+			<artifactId>IKAnalyzer</artifactId>
+			<version>${ikanalyzer.version}</version>
+		</dependency>
+	
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis.spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.miemiedev</groupId>
+			<artifactId>mybatis-paginator</artifactId>
+			<version>${mybatis.paginator.version}</version>
+		</dependency>
+		
+		
+	      <!-- 分页插件 -->
+		 <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pager.pagehelper.version}</version>
+         </dependency>
+		
+		
+		<!-- 连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		
+		<!-- MySql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		
+		
+		<!-- 缓存 -->
+		<!-- Redis客户端 -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${redis.jedis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>${redis.spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>  
+			<artifactId>ehcache-web</artifactId>  
+			<version>${ehcache-web.version}</version>
+		</dependency>
+		
+		
+	   <!-- shiro begin -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.shiro</groupId>
+					<artifactId>shiro-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- shiro end -->
+
+		
+
+	
+		
+		
+	
+	
+		<!-- quartz spring 3.1以上才支持quartz 2.2.1 -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+	
+		<!-- esper -->
+		<dependency>
+			<groupId>com.espertech</groupId>
+			<artifactId>esper</artifactId>
+			<version>${esper.version}</version>
+		</dependency>
+		<!-- <dependency>
+		    <groupId>org.codehaus.janino</groupId>
+		    <artifactId>janino</artifactId> 
+		    <version>${janino.version}</version>
+		</dependency> -->
+		<!-- 时间操作组件 -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		
+		<!-- Apache工具组件 -->
+	    <dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils</artifactId>
+		    <version>${commons-beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>${commons-net.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>${commons-math3.version}</version>
+		</dependency>
+		  
+		
+		<!-- mail -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-email</artifactId>
+		    <version>${commons-email.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>${javax.email.version}</version>
+		</dependency>
+
+         <dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>${commons-configuration.version}</version>
+		    <exclusions>
+		        <!-- <exclusion>
+		            <groupId>commons-lang</groupId>
+		             <artifactId>commons-lang</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>commons-logging</groupId>
+		             <artifactId>commons-logging</artifactId>
+		        </exclusion> -->
+		        <exclusion>
+		            <groupId>log4j</groupId>
+   					<artifactId>log4j</artifactId>
+		        </exclusion>
+		        <exclusion>
+		        	<groupId>commons-beanutils</groupId>
+		        	<artifactId>commons-beanutils-core</artifactId>
+		        </exclusion>
+		        <exclusion>
+		        	<groupId>commons-beanutils</groupId>
+		        	<artifactId>commons-beanutils</artifactId>
+		        </exclusion>
+		    </exclusions>
+		 </dependency>
+		
+		
+		
+		<!-- XML Parser -->
+		<dependency>
+			<groupId>javax.xml.stream</groupId>
+			<artifactId>stax-api</artifactId>
+			<version>${stax.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>${dom4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xml.xstream.version}</version>
+		</dependency>
+		
+		
+		<!-- Json处理工具包  -->
+		<!-- Jackson -->
+	    <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		
+				
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${json.fastjson.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+		     <groupId>com.google.code.gson</groupId>
+		     <artifactId>gson</artifactId>
+		     <version>${json.gson.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+		
+		
+	    <!-- cors-filter -->
+		<dependency>
+		    <groupId>com.thetransactioncompany</groupId>
+		    <artifactId>cors-filter</artifactId>
+		    <version>${cors-filter.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.thetransactioncompany</groupId>
+		    <artifactId>java-property-utils</artifactId>
+		    <version>${cors-filter-propertyUtils.version}</version>
+		</dependency>
+		
+	
+		<!-- 日志管理 -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>${logback-ext-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl-over-slf4j.version}</version>
+		</dependency>
+
+		
+		
+		<!-- el -->
+		<dependency>
+			<groupId>org.mvel</groupId>
+			<artifactId>mvel2</artifactId>
+			<version>${mvel.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		
+				
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
+		
+		
+		
+		<!-- 下边的依赖  不会被打包  仅仅在测试的时候用到 -->
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	     <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>provided</scope>
+		 </dependency>
+		 
+		<dependency>
+		   <groupId>org.apache.tomcat.embed</groupId>
+		   <artifactId>tomcat-embed-websocket</artifactId>
+		   <version>8.5.15</version>
+		   <scope>provided</scope>
+		</dependency>
+	  </dependencies>
+  
+  <build>
+   	<finalName>myqq</finalName>
+       <plugins>
+      		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				 <configuration>  
+			        <filesets>  
+			            <fileset>  
+			                <directory>${project.basedir}/cache</directory>  
+			            </fileset>  
+			            <fileset>  
+			                <directory>${project.build.directory}</directory>  
+			            </fileset>  
+			        </filesets>  
+			    </configuration>  
+			</plugin>
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <!-- 忽略测试 -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-resources-plugin</artifactId>
+	            <configuration>
+	                <encoding>UTF-8</encoding>
+	            </configuration>
+	        </plugin>
+      </plugins>
+      
+      <resources>  
+           <resource>  
+               <directory>src/main/resources/</directory>  
+               <filtering>true</filtering>  
+               <includes>  
+                   <include>**/*.properties</include>  
+                   <include>logback.xml</include>
+               </includes>  
+           </resource>  
+           <resource>  
+               <directory>src/main/resources/</directory>  
+               <filtering>false</filtering>  
+               <includes>  
+                   <include>**/*.xml</include>  
+               </includes>  
+           </resource>  
+       </resources>  
+  </build>
+   
+   
+   <profiles>  
+        <profile>  
+            <!-- 开发环境 -->  
+            <id>dev</id>  
+            <properties>  
+                <profiles.active>dev</profiles.active> 
+                <!-- Resource_DICT -->
+                <jdbc.url>jdbc:mysql://192.168.100.52:3306/myqq?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>mYsqL$%123</jdbc.password>
+                
+                <kafka.consumer.bootstrap.servers>192.168.100.150:9092</kafka.consumer.bootstrap.servers>
+            </properties>  
+            <activation><activeByDefault>true</activeByDefault></activation>  
+        </profile>  
+        <profile>  
+            <!-- 测试环境 -->  
+            <id>test</id>  
+            <properties>  
+                <profiles.active>test</profiles.active>  
+                <jdbc.url>jdbc:mysql://localhost:3306/myqq?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>mYsqL$%123</jdbc.password>
+                <kafka.consumer.bootstrap.servers>localhost:9092</kafka.consumer.bootstrap.servers>
+            </properties>  
+        </profile>  
+        
+        <profile>  
+            <!-- 正式环境 -->  
+            <id>pro</id>  
+            <properties>  
+                <profiles.active>pro</profiles.active>
+                <jdbc.url>jdbc:mysql://localhost:3306/myqq?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>mYsqL$%123</jdbc.password>  
+            </properties>  
+        </profile> 
+    </profiles>  
+  
+</project>

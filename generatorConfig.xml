@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+<!-- 	<classPathEntry location="D:/plugins/mysql-connector-java-5.1.13.jar" /> -->
+	<!-- <classPathEntry location="D:/JavaTool/plugs/jtds-1.3.1.jar" /> -->
+	<!-- <classPathEntry location="D:/plugins/jtds-1.3.1.jar" /> -->
+	<classPathEntry location="E:\\repository\\mysql\\mysql-connector-Java\\5.1.20\\mysql-connector-java-5.1.20.jar" />
+	<context id="context1">
+		 <property name="javaFileEncoding" value="UTF-8"/> 	
+		<commentGenerator type="com.myqq.util.MyCommentGenerator">
+			 <property name="suppressAllComments" value="false" />
+			 <property name="suppressDate" value="true"/>
+		 </commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.100.52:3306/myqq?characterEncoding=UTF-8" 
+			userId="root"
+			password="mYsqL$%123" />
+	<!-- 	<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+			connectionURL="jdbc:jtds:sqlserver://localhost:1433;databaseName=datamanager" 
+			userId="sa"
+			password="sa" /> -->
+			
+		
+	<!-- 	<javaModelGenerator targetPackage="com.ecastle.datamanager.sys.entity"
+			targetProject="datamanager/src/main/java" />
+			
+		<sqlMapGenerator targetPackage="mappings.sys"
+			targetProject="datamanager/src/main/resources" />
+			
+		<javaClientGenerator targetPackage="com.ecastle.datamanager.sys.dao"
+			targetProject="datamanager/src/main/java"
+			type="XMLMAPPER"></javaClientGenerator> -->
+		<javaModelGenerator targetPackage="com.myqq.entity.page"
+			targetProject="myqq/src/main/java" />
+		<sqlMapGenerator targetPackage="mappings.page"
+			targetProject="myqq/src/main/resources" />
+		<javaClientGenerator targetPackage="com.myqq.dao.mappers.page"
+			targetProject="myqq/src/main/java"
+			type="XMLMAPPER"></javaClientGenerator>
+			
+			
+	  <!--   <table tableName="user" domainObjectName="User" enableCountByExample="false"  
+	    enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true" 
+           enableDeleteByExample="false" enableSelectByExample="false"   
+           enableUpdateByExample="false"></table> -->
+	    <table tableName="page_main" domainObjectName="PageMain" enableCountByExample="true"  
+	    enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true" 
+           enableDeleteByExample="false" enableSelectByExample="true"   
+           enableUpdateByExample="false" ></table>
+	    <table tableName="page_child" domainObjectName="PageChild" enableCountByExample="true"  
+	    enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true" 
+           enableDeleteByExample="false" enableSelectByExample="true"   
+           enableUpdateByExample="false" ></table>
+	    <!-- <table tableName="my_device" domainObjectName="MyDevice" enableCountByExample="false"  
+	    enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true" 
+           enableDeleteByExample="false" enableSelectByExample="false"   
+           enableUpdateByExample="false"></table> -->
+	</context>
+</generatorConfiguration>
